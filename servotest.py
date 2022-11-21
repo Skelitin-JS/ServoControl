@@ -13,6 +13,9 @@ import sys
 white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
+red = (255, 0, 0)
+lavendar = (230, 230, 250)
+blackIThink = (0, 0, 0)
  
 # create a font object.
 # 1st parameter is the font file
@@ -31,7 +34,15 @@ textRect = text.get_rect()
 # set the center of the rectangular object.
 textRect.center = (100 // 2, 100 // 2)
 
-#pygame init, creates a pygame window to allow starting and stopping of servos by pressing keys
+# adds duck image (logo) 
+imp = pygame.image.load("pixil-frame-0.png").convert()
+
+#sets  duck image location (testing, not sure if it works)
+text.get_rect.x = 100
+text.get_rect.y = 100
+ 
+
+#pygame init, starts pygame
 pygame.init()  
 
 # Set GPIO numbering mode
@@ -45,6 +56,7 @@ servo1 = GPIO.PWM(11,50) # Note 11 is pin, 50 = 50Hz pulse
 # Define the dimensions of
 # screen object(width,height)
 screen = pygame.display.set_mode((500, 350))
+
   
 # Set the caption of the screen
 pygame.display.set_caption('Servo Control')
@@ -68,14 +80,10 @@ while True:
             #stops active servos, exits pygame
             if event.key == pygame.K_a:
                 servo1.stop()
-                text = font.render('Servos = off', True, green, blue)
+                text = font.render('Servos = Off', True, green, blue)
                 print("Servos Off")
                 GPIO.cleanup()
                 print("Goodbye")
                 exit()
                 
-                
-               
-           
-               
-            
+#enjoy servo code and have fun messing around with it  
