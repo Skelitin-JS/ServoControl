@@ -12,3 +12,8 @@ Servo I used can be found here: https://www.amazon.com/Smraza-Helicopter-Airplan
 ~~Connectors to connect servo to rasp pi can be found here: (will add later)~~
 
 (tested on a raspberry pi 3b, also can't gurantee it'll work on any other hardware, also using raspberry pi os)
+
+# To contribute
+Not sure why you'd want to contribute
+
+But if you want to, create a pull request and wait
