@@ -9,6 +9,28 @@ import time
 import pygame
 import sys
 
+#define colors for pygame to reference later
+white = (255, 255, 255)
+green = (0, 255, 0)
+blue = (0, 0, 128)
+ 
+# create a font object.
+# 1st parameter is the font file
+# which is present in pygame.
+# 2nd parameter is size of the font
+font = pygame.font.Font('freesansbold.ttf', 32)
+ 
+# create a text surface object,
+# on which text is drawn on it.
+text = font.render('Servos = On', True, green, blue)
+ 
+# create a rectangular object for the
+# text surface object
+textRect = text.get_rect()
+ 
+# set the center of the rectangular object.
+textRect.center = (100 // 2, 100 // 2)
+
 #pygame init, creates a pygame window to allow starting and stopping of servos by pressing keys
 pygame.init()  
 
@@ -46,6 +68,8 @@ while True:
             #stops active servos, exits pygame
             if event.key == pygame.K_a:
                 servo1.stop()
+                text = font.render('Servos = off', True, green, blue)
+                print("Servos Off")
                 GPIO.cleanup()
                 print("Goodbye")
                 exit()
